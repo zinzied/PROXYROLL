@@ -1,4 +1,1 @@
-requests
-fake_useragent
-colorama
-pyfiglet
+pip install requests fake-useragent colorama pyfiglet concurrent futures logging re random
