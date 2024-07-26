@@ -2,6 +2,7 @@ import requests
 import re
 from colorama import Fore, init
 
+init()
 # Define the URLs for scraping proxy lists
 proxy_urls = [
     "https://api.proxyscrape.com/v3/free-proxy-list/get?request=displayproxies&proxy_format=ipport&format=text&timeout=20000",
