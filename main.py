@@ -1,3 +1,10 @@
+#  __  __   _         __   _         
+ )_) )_) / ) (/ \_) )_) / ) )   )  
+/   / \ (_/  /)  / / \ (_/ (__ (__ 
+                                   
+# Author: Zied Boughdir
+# Email ziedboughdir@gmail.com
+# GitHub: https://github.com/zinzied
 import sys
 import time
 import random
