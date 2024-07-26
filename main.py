@@ -1,7 +1,4 @@
-#  __  __   _         __   _         
- )_) )_) / ) (/ \_) )_) / ) )   )  
-/   / \ (_/  /)  / / \ (_/ (__ (__ 
-                                   
+# PROXYROLL
 # Author: Zied Boughdir
 # Email ziedboughdir@gmail.com
 # GitHub: https://github.com/zinzied
