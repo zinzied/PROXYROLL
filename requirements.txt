@@ -1,0 +1,4 @@
+requests
+fake_useragent
+colorama
+pyfiglet
