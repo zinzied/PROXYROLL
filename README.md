@@ -32,4 +32,9 @@ The app provides an efficient way to collect and verify the validity of proxies,
      - Alternatively, provide the path to a file containing proxies to test them.
    - The tool will then proceed to scrape or test proxies, logging its progress and storing valid proxies in the respective output files.
 
-In summary, PROXYROLL is an efficient and informative proxy testing and scraping tool. Its concurrent testing, organized results, and user-friendly interface make it a handy addition to anyone needing to work with proxies, whether for web scraping, anonymity, or any other purpose. It's a roll of the dice that's bound to bring you good proxies!
+### Donations
+If you feel like showing your love and/or appreciation for this Sipmle project, then how about shouting me a coffee or Milk :)
+
+[<img src="https://github.com/zinzied/Website-login-checker/assets/10098794/24f9935f-3637-4607-8980-06124c2d0225">](https://www.buymeacoffee.com/Zied)
+
+
