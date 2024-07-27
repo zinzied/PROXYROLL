@@ -28,7 +28,7 @@ The app provides an efficient way to collect and verify the validity of proxies,
 
 ### Usage:
    - PROXY is a command-line tool, and its usage goes like this:
-     - Run the script with the `--scrape` flag to scrape proxies from the predefined sources.
+     - Run the script with the `python main.py` flag to scrape proxies from the predefined sources.
      - Alternatively, provide the path to a file containing proxies to test them.
    - The tool will then proceed to scrape or test proxies, logging its progress and storing valid proxies in the respective output files.
 
