@@ -1,4 +1,6 @@
-PROXYROLL is a proxy testing and scraping tool. It helps users in their quest for finding and validating proxies from various sources (you can add your own sources) in scraper.py. 
+### PROXYROLL is a proxy testing and scraping tool. It helps users in their quest for finding and validating proxies from various sources (you can add your own sources) in scraper.py. 
+
+![image](https://github.com/user-attachments/assets/42d98e95-4a61-4ec0-807a-1d2988a4c333)
 
 The app provides an efficient way to collect and verify the validity of proxies, making it a valuable asset for anyone in need of reliable proxy lists. Here's a breakdown of its key features and usage:
 ### 1. Proxy Scraping:
