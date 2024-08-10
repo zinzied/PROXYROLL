@@ -12,7 +12,9 @@ proxy_urls = [
     "https://www.proxy-list.download/api/v1/get?type=socks4",
     "https://www.proxy-list.download/api/v1/get?type=socks5",
     "https://www.proxy-list.download/api/v1/get?type=http",
-    "https://sunny9577.github.io/proxy-scraper/proxies.txt",
+    "https://sunny9577.github.io/proxy-scraper/generated/http_proxies.txt",
+    "https://sunny9577.github.io/proxy-scraper/generated/socks5_proxies.txt",
+    "https://sunny9577.github.io/proxy-scraper/generated/socks4_proxies.txt",
 ]
 
 # Initialize an empty list to store all proxies
