@@ -34,6 +34,7 @@ os.makedirs(SAVE_DIRECTORY, exist_ok=True)
 
 # Define the URLs for scraping proxy lists
 proxy_urls = [
+    # Existing sources
     "https://api.proxyscrape.com/v3/free-proxy-list/get?request=displayproxies&proxy_format=ipport&format=text&timeout=20000",
     "https://github.com/TheSpeedX/PROXY-List/blob/master/socks5.txt",
     "https://github.com/TheSpeedX/PROXY-List/blob/master/http.txt",
@@ -44,6 +45,29 @@ proxy_urls = [
     "https://sunny9577.github.io/proxy-scraper/generated/http_proxies.txt",
     "https://sunny9577.github.io/proxy-scraper/generated/socks5_proxies.txt",
     "https://sunny9577.github.io/proxy-scraper/generated/socks4_proxies.txt",
+    
+    # Additional sources
+    "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt",
+    "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/socks4.txt",
+    "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/socks5.txt",
+    "https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list-raw.txt",
+    "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt",
+    "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies_anonymous/http.txt",
+    "https://raw.githubusercontent.com/hookzof/socks5_list/master/proxy.txt",
+    "https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt",
+    "https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/socks4.txt",
+    "https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/socks5.txt",
+    "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt",
+    "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-https.txt",
+    "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-socks4.txt",
+    "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-socks5.txt",
+    "https://api.openproxylist.xyz/http.txt",
+    "https://api.openproxylist.xyz/socks4.txt",
+    "https://api.openproxylist.xyz/socks5.txt",
+    "https://proxyspace.pro/http.txt",
+    "https://proxyspace.pro/https.txt",
+    "https://proxyspace.pro/socks4.txt",
+    "https://proxyspace.pro/socks5.txt",
 ]
 
 def validate_proxy(proxy, test_url="http://www.google.com"):
