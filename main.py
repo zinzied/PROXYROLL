@@ -16,6 +16,13 @@ import pyfiglet  # For ASCII art
 from threading import Lock
 from scraper import main as scrape_proxies
 
+# Add this list of cool fonts near the top of the file after imports
+FONTS = [
+    "slant", "banner3", "cosmic", "digital", "doom", "big", 
+    "block", "roman", "shadow", "standard", "starwars", 
+    "stop", "straight", "weird"
+]
+
 # Initialize Colorama
 init()
 
@@ -34,7 +41,7 @@ def print_welcome_message():
 ██████╔╝██████╔╝██║   ██║ ╚███╔╝  ╚████╔╝ ██████╔╝██║   ██║██║     ██║     
 ██╔═══╝ ██╔══██╗██║   ██║ ██╔██╗   ╚██╔╝  ██╔══██╗██║   ██║██║     ██║     
 ██║     ██║  ██║╚██████╔╝██╔╝ ██╗   ██║   ██║  ██║╚██████╔╝███████╗███████╗
-╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝
+╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═════╝ ╚══════╝╚══════╝
                                                                                                                                                              
     """
     print(Fore.CYAN + Style.BRIGHT + "=" * 50)
@@ -43,10 +50,16 @@ def print_welcome_message():
     # Print Emoji-style logo
     print(Fore.GREEN + Style.BRIGHT + logo)
     
-    # Create a large ASCII art version of your name
-    ascii_name = pyfiglet.figlet_format("BY ZIED", font="univers")
-    print(Fore.YELLOW + Style.BRIGHT + ascii_name)
+    # Use random font for ASCII art
+    random_font = random.choice(FONTS)
+    try:
+        ascii_name = pyfiglet.figlet_format("BY ZIEDEV 2025", font=random_font)
+    except Exception:
+        # Fallback to standard font if chosen font fails
+        ascii_name = pyfiglet.figlet_format("BY ZIEDEV 2025", font="standard")
     
+    print(Fore.YELLOW + Style.BRIGHT + ascii_name)
+    print(Fore.CYAN + Style.BRIGHT + f"Font: {random_font}")  # Show which font was used
     print(Fore.CYAN + Style.BRIGHT + "=============================")
     print(Fore.CYAN + Style.BRIGHT + " Enjoy the Proxies Checker!! ")
     print(Fore.CYAN + Style.BRIGHT + "=" * 50)
