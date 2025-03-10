@@ -1,1 +1,7 @@
-pip install requests fake-useragent colorama pyfiglet concurrent futures logging re random
+requests>=2.31.0
+fake-useragent>=1.4.0
+colorama>=0.4.6
+pyfiglet>=1.0.2
+tqdm>=4.66.2
+logging>=0.5.1.2
+concurrent-futures>=3.0.5
