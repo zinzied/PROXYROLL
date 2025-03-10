@@ -14,8 +14,7 @@ from colorama import init, Fore, Style
 import re
 import pyfiglet  # For ASCII art
 from threading import Lock
-import scraper
-
+from scraper import main as scrape_proxies
 
 # Initialize Colorama
 init()
@@ -130,77 +129,22 @@ def check_proxy(proxy, valid_proxies):
         time.sleep(2 ** attempt)  # Exponential backoff for retry
         timeout *= 2  # Double the timeout for next retry
     print(Fore.RED + f"Proxy {proxy} is not valid." + Style.RESET_ALL)
-# ... (existing code)
 
-# Import the scrape function from scraper.py
-import scraper
-
-# Function to scrape proxies from websites
-def scrape_proxies_from_websites():
-    # Use the scrape function from scraper.py
-    return scraper.scrape()
-
-# Main function
-if __name__ == "__main__":
+def main():
     print_welcome_message()
-
-    # Check if scraping mode is enabled
-    scraping_mode = len(sys.argv) > 1 and sys.argv[1] == '--scrape'
-
-    if scraping_mode:
-        # Read proxies from websites
-        proxies = scrape_proxies_from_websites()
-        if not proxies:
-            logging.info("No proxies obtained. Exiting.")
-            exit()
-    else:
-        # Read proxies from file
-        proxy_file = "proxies.txt"
-        proxies = read_proxies_from_file(proxy_file)
-        if not proxies:
-            logging.info("No proxies to test. Exiting.")
-            exit()
-
-    # ... (remaining code remains unchanged)
-# Main function
-if __name__ == "__main__":
-    print_welcome_message()  # Print the welcome message
-
-    scraping_mode = len(sys.argv) > 1 and sys.argv[1] == '--scrape'
-
-    if scraping_mode:
-        # Read proxies from websites
-        proxies, num_proxies = scrape_proxies_from_websites()
+    
+    try:
+        # Call the scraper
+        print(f"{Fore.CYAN}Starting proxy scraper...{Style.RESET_ALL}")
+        scrape_proxies()
+        print(f"{Fore.GREEN}Proxy scraping completed! Check the 'proxies' folder for results.{Style.RESET_ALL}")
         
-        if not proxies:
-            logging.info(f"No proxies obtained. {num_proxies} proxies were scraped.")
-            exit()
-        else:
-            logging.info(f"Obtained {len(proxies)} proxies. {num_proxies} proxies were scraped.")
-    else:
-        # Read proxies from file
-        proxy_file = "proxies.txt"
-        proxies = read_proxies_from_file(proxy_file)
-        if not proxies:
-            logging.info("No proxies to test. Exiting.")
-            exit()
-    
-    # Shuffle the list of proxies to randomize the order of testing
-    random.shuffle(proxies)
-    
-    # List to keep track of valid proxies
-    valid_proxies = []
+    except KeyboardInterrupt:
+        print(f"\n{Fore.YELLOW}Scraping interrupted by user.{Style.RESET_ALL}")
+        sys.exit(1)
+    except Exception as e:
+        print(f"{Fore.RED}An error occurred: {str(e)}{Style.RESET_ALL}")
+        sys.exit(1)
 
-    invalid_proxies = []
-    
-    # Test proxies concurrently
-    logging.info("Testing proxies...")
-    with ThreadPoolExecutor(max_workers=min(10, len(proxies))) as executor:
-        # Submit proxy check tasks
-        futures = [executor.submit(check_proxy, proxy, valid_proxies) for proxy in proxies]
-        # Wait for all futures to complete
-        concurrent.futures.wait(futures)
-    
-    # Log final status
-    logging.info("Proxy testing completed!!")
-    logging.info(f"Total proxies scraped: {num_proxies}")
+if __name__ == "__main__":
+    main()
