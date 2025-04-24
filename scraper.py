@@ -45,7 +45,7 @@ proxy_urls = [
     "https://sunny9577.github.io/proxy-scraper/generated/http_proxies.txt",
     "https://sunny9577.github.io/proxy-scraper/generated/socks5_proxies.txt",
     "https://sunny9577.github.io/proxy-scraper/generated/socks4_proxies.txt",
-    
+
     # Additional sources
     "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt",
     "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/socks4.txt",
@@ -117,17 +117,17 @@ def scrape_proxies_parallel(urls):
                 results[proxy_type].update(proxies)
             else:
                 print(f"{Fore.RED}✗ Error scraping {url}: {error}")
-    
+
     return results
 
 def main():
     """Main execution function"""
     try:
         print(f"{Fore.CYAN}Starting proxy scraper with {SCRAPING_THREADS} scraping threads and {TESTING_THREADS} testing threads")
-        
+
         # Scrape proxies in parallel
         classified_proxies = scrape_proxies_parallel(proxy_urls)
-        
+
         if not any(classified_proxies.values()):
             logging.error("No proxies were scraped. Exiting.")
             return
@@ -152,12 +152,23 @@ def main():
         # Save results
         for proxy_type, proxies in valid_proxies.items():
             if proxies:  # Only save if we have valid proxies
-                filename = f"{proxy_type}_proxies_{TIMESTAMP}.txt"
-                filepath = os.path.join(SAVE_DIRECTORY, filename)
-                with open(filepath, 'w') as file:
+                # Save with timestamp for archiving
+                timestamp_filename = f"{proxy_type}_proxies_{TIMESTAMP}.txt"
+                timestamp_filepath = os.path.join(SAVE_DIRECTORY, timestamp_filename)
+                with open(timestamp_filepath, 'w') as file:
                     for proxy in proxies:
                         file.write(f"{proxy}\n")
-                print(f"{Fore.GREEN}Saved {len(proxies)} {proxy_type} proxies to {filepath}")
+
+                # Save with standard name for easy identification
+                standard_filename = f"{proxy_type}-valid.txt"
+                standard_filepath = os.path.join(SAVE_DIRECTORY, standard_filename)
+                with open(standard_filepath, 'w') as file:
+                    for proxy in proxies:
+                        file.write(f"{proxy}\n")
+
+                print(f"{Fore.GREEN}Saved {len(proxies)} {proxy_type} proxies to:")
+                print(f"{Fore.GREEN}- {timestamp_filepath} (archived)")
+                print(f"{Fore.GREEN}- {standard_filepath} (for easy access)")
 
         # Print statistics
         print(f"\n{Fore.CYAN}=== Proxy Scraping Results ===")
