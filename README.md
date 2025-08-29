@@ -53,22 +53,29 @@ The app provides an efficient way to collect and verify the validity of proxies,
    - Real-time progress tracking with tqdm
    - Automatic proxy format detection and cleaning
 
+### 🌐 Web Interface:
+   - PROXYROLL now includes a web interface to view the valid proxies.
+   - The web interface is built with Flask and displays the proxies in a clean and organized manner.
+   - To run the web interface, you need to install Flask: `pip install Flask`.
+   - Then, run the app: `python app.py`.
+   - The web interface will be available at `http://localhost:5000`.
+
 ### 🚀 Usage:
 ```bash
 # To start the proxy scraper:
 python main.py
 
-# The script will:
-1. Display welcome message
-2. Start scraping proxies from all sources
-3. Test all scraped proxies
-4. Save valid proxies in the 'proxies' folder with easy-to-identify names
-5. Show detailed statistics
+# To start the web interface:
+pip install Flask
+python app.py
 ```
 
 ### 📂 Output Structure:
 ```
 PROXYROLL/
+├── app.py
+├── templates/
+│   └── index.html
 ├── proxies/
 │   ├── http-valid.txt                    # Easy access to HTTP proxies
 │   ├── socks4-valid.txt                  # Easy access to SOCKS4 proxies
@@ -83,5 +90,3 @@ PROXYROLL/
 If you feel like showing your love and/or appreciation for this simple project, then how about buying me a coffee or milk? ☕🥛
 
 [<img src="https://github.com/zinzied/Website-login-checker/assets/10098794/24f9935f-3637-4607-8980-06124c2d0225">](https://www.buymeacoffee.com/Zied)
-
-
